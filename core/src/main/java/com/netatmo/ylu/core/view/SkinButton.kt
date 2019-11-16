@@ -1,11 +1,13 @@
 package com.netatmo.ylu.core.view
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import com.netatmo.ylu.core.AttributeBean
 import com.netatmo.ylu.core.R
+import com.netatmo.ylu.core.SkinManager
 
 class SkinButton @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -25,8 +27,21 @@ class SkinButton @JvmOverloads constructor(
         var key = R.styleable.SkinButton[R.styleable.SkinButton_android_background]
         val backgroundId = attributeBean.getViewResource(key)
         if(backgroundId > 0){
-            val drawable = ContextCompat.getDrawable(context, backgroundId)
-            background = drawable
+            SkinManager.instance?.let {
+                if (it.isDefaultSkin) {
+                    val drawable = ContextCompat.getDrawable(context, backgroundId)
+                    setBackgroundDrawable(drawable)
+                } else {
+                    val skinResourceId = it.getBackgroundOrSrc(backgroundId)
+                    if (skinResourceId is Int) {
+                        setBackgroundColor(skinResourceId)
+                    } else {
+                        val drawable = skinResourceId as Drawable
+                        setBackgroundDrawable(drawable)
+                    }
+                }
+            }
+
         }
 
 

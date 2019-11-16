@@ -4,9 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <!--Can not use reference of android color-->
-    <color name="layoutBackgroundColor">#FFFFFF</color>
-
+    <color name="layoutBackgroundColor">#191970</color>
     <color name="defaultTextColor">#008577</color>
-    <color name="defaultTextColor1">#000000</color>
+    <color name="defaultTextColor1">@android:color/white</color>
 </resources>

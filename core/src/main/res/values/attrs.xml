@@ -8,13 +8,18 @@
     <declare-styleable name ="SkinTextView">
         <attr name="android:background"/>
         <attr name="android:textColor"/>
+        <attr name="custom_typeface" />
     </declare-styleable>
 
     <declare-styleable name ="SkinImageView">
-        <attr name="android:background"/>
+        <attr name="android:src" />
     </declare-styleable>
 
     <declare-styleable name ="SkinLinearLayout">
-        <attr name="android:background"/>
+        <attr name="android:background" />
+    </declare-styleable>
+
+    <declare-styleable name="SkinConstraintLayout">
+        <attr name="android:background" />
     </declare-styleable>
 </resources>

@@ -5,12 +5,17 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatViewInflater;
 
 import com.netatmo.ylu.core.view.SkinButton;
+import com.netatmo.ylu.core.view.SkinConstraintLayout;
 import com.netatmo.ylu.core.view.SkinImageView;
 import com.netatmo.ylu.core.view.SkinLinearLayout;
 import com.netatmo.ylu.core.view.SkinTextView;
 
+/**
+ * {@link AppCompatViewInflater}
+ */
 public class CustomAppCompatViewInflater {
 
     @NonNull
@@ -49,6 +54,11 @@ public class CustomAppCompatViewInflater {
                 break;
             case "LinearLayout":
                 view = new SkinLinearLayout(context,attrs);
+                break;
+            case "androidx.constraintlayout.widget.ConstraintLayout":
+                view = new SkinConstraintLayout(context, attrs);
+                break;
+
         }
         return view;
     }
