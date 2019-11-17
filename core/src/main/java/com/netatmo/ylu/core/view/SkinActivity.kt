@@ -71,5 +71,6 @@ open class SkinActivity : AppCompatActivity(){
                 changeSkin(view)
             }
         }
+        //add recyclerview support
     }
 }
